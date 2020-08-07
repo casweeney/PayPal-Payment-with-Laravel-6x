@@ -21,6 +21,11 @@ use URL;
 
 class PaymentController extends Controller
 {
+    public function index(){
+        return view('paywithpaypal');
+    }
+
+
     private $_api_context;
     public function __construct(){
         $paypal_conf = \Config::get('paypal');
@@ -136,8 +141,7 @@ class PaymentController extends Controller
         if ($result->getState() == 'approved') {
  
             \Session::put('success', 'Payment success');
-            return redirect('/');
-            // return Redirect::route('/');
+            return Redirect::route('paywithpaypal');
  
         }
  

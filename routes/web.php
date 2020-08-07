@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('paywithpaypal');
-});
+Route::get('/', 'PaymentController@index')->name('paywithpaypal');
 
-Route::post('paypal', 'PaymentController@payWithpaypal')->name('paywithpaypal');
+Route::post('paypal', 'PaymentController@payWithpaypal');
 Route::get('status', 'PaymentController@getPaymentStatus')->name('status');
